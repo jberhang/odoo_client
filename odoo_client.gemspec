@@ -7,16 +7,12 @@ require "odoo_client/version"
 Gem::Specification.new do |s|
   s.name        = "odoo_client"
   s.version     = OdooClient::VERSION
-  s.authors     = [""]
-  s.email       = [""]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of OdooClient."
-  s.description = "TODO: Description of OdooClient."
+  s.authors     = ["Justin Berhang"]
+  s.email       = ["justin@scratch.com"]
+  s.homepage    = "https://github.com/jberhang/odoo_client"
+  s.summary     = "Ruby Client for Odoo ERP."
+  s.description = "Ruby Client for Odoo ERP."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-
-  s.add_dependency "rails", "~> 4.2.2"
-
-  s.add_development_dependency "sqlite3"
+  s.files = Dir["{lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 end
