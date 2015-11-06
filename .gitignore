@@ -3,5 +3,3 @@ log/*.log
 pkg/
 # vcr
 /spec/vcr 
-# redis
-dump.rdb  

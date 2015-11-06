@@ -3,40 +3,29 @@ module OdooClient
 
 		include ActionView::Helpers::TextHelper
 		
-		def initialize(contact. client)
-			@contact = contact
+		def initialize(client, contact_params, sales_team)
+			@contact_params = {"name" => "", "phone_number" => "", "city" => "", "email" => ""}.merge(contact_params.compact)
 			@client = client
+			@sales_team = sales_team
 		end
 
 		def perform
-	  	lead_type_tag_id = @client.list_records('crm.case.categ', [['name', '=', @contact.inquiry_type]] )[0]
-	  	web_lead_tag_id = @client.list_records('crm.case.categ', [['name', '=', 'Web Lead' ]] )[0]
-	  	sales_team_id = @client.find_academy_sales_team_id(@contact.city)
+		  	#web_lead_tag_id = @client.list_records('crm.case.categ', [['name', '=', 'Web Lead' ]] )[0]
+		  	#sales_team_id = @client.list_records('crm.case.section', [['name', '=', @sales_team ]] )[0]
 
-	  	display_name = "#{@contact.city} : #{@contact.inquiry_type}"
+		    record_params = { "contact_name" => @contact_params["name"], 
+						  	  "display_name" => @contact_params["name"],
+						  	  "phone" => @contact_params["phone_number"],
+						  	  "city" => @contact_params["city"],
+						  	  "description" => "#{@contact_params["comments"]} : Venue #{@contact_params["venue"]} : Preferred DJ #{@contact_params["preferred_dj"]}",
+						  	  "name" => @contact_params["name"],
+						  	  "email_from" => @contact_params["email"],
+						  	  "user_id" => false}		
 
-	    case @contact.inquiry_type
-	    when "Event Services"
-	    	description = "#{pluralize(@contact.attendees, 'person')} requested :: #{@contact.private_event_date.strftime("%B %d, %Y")} // #{@contact.comments}"
-	    when "Open House"
-	      description = @contact.odoo_event ? "Open House: #{@contact.odoo_event.start.strftime('%l:%M %p')}, #{ @contact.odoo_event.start.strftime('%B %d') }" : ""
-	    else
-	    	description = @contact.comments
-	    end   
+			#record_params["section_id"] = sales_team_id if sales_team_id
+			#record_params["categ_ids"] = [ [ 6, false, [web_lead_tag_id] ] ] if web_lead_tag_id
 
-	  	@client.create_record('crm.lead', { "contact_name" => @contact.name, 
-	  		"display_name" => display_name,
-	  		"phone" => @contact.phone_number,
-	  		"city" => @contact.city,
-	  		"description" => description,
-	  		"name" => display_name,
-	  		"email_from" => @contact.email,
-	  		"user_id" => false,
-	  		"section_id" => sales_team_id,
-	      # https://www.pivotaltracker.com/story/show/101543764
-	      # 6 seems to specify an Odoo API version, but not 100% sure
-	  		"categ_ids" => [ [ 6, false, [lead_type_tag_id, web_lead_tag_id ] ] ] }
-	    )
+			@client.create_record('crm.lead', record_params)
 		end	
 	end
 end
