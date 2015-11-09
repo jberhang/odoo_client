@@ -2,10 +2,10 @@
 
 ## TODO:
 
-* Retrofit rspec specs to gem
-* Include all service objects
-* Pull academy-app specific code
 * Create proper readme
+* Retrofit rspec specs to gem
+* Pull existing application specific code
+* Include service objects to manage common tasks in Odoo (requires schema knowledge of different Odoo versions "crm.case.categ vs lead.tags")
 
 
 ## Copyright
