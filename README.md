@@ -16,7 +16,7 @@ gem 'odoo_client', github: 'jberhang/odoo_client', branch: 'master'
 
 And then execute:
 
-$ bundle
+$ bundle install
 
 ## Usage
 
