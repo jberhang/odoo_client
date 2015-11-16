@@ -1,5 +1,4 @@
-# Odoo Client
-
+## Odoo Client
 ## Ruby Wrapper for Odoo ERP
 
 This wrapper has been used with Odoo 8 and Odoo 9 installations. Please keep in mind that there are differences between some model names and associations between these versions. I highly recommend getting familiar with Odoo's 'Database Structure' admin settings under the Technical sub-menu and Odoo's web services documentation here:
