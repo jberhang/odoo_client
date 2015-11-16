@@ -68,6 +68,7 @@ result = client.update_record("res.partner", {"name" => "Bobby Smith", "email" =
 
 ## TODO:
 
+* Add gem versions
 * Retrofit specs to gem
 * Include service objects to manage common tasks in Odoo (requires schema knowledge of different Odoo versions "crm.case.categ vs lead.tags")
 
