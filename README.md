@@ -59,7 +59,7 @@ result = client.count_records("event.registration", [["event_id", "=", 6],["name
 record_params = { "contact_name" => "Bob Smith", 
 				  "display_name" => "Opportunity: Bob Smith",
 					  	  "phone" => "867-5309",
-					  	  "city" => "New York City",
+					  	  "city" => "New York",
 					  	  "email_from" => "bsmith@gmail.com",
 					  	  "user_id" => false,
 					  	  "type" => "opportunity"}	
