@@ -3,11 +3,11 @@
 This wrapper has been used with Odoo 8 and Odoo 9 installations. Please keep in mind that there are differences between some model names and associations between these versions. I highly recommend getting familiar with Odoo's 'Database Structure' admin settings under the Technical sub-menu and Odoo's documentation here:
 
 * Odoo API docs
-** https://www.odoo.com/documentation/8.0/api_integration.html
-** https://www.odoo.com/documentation/9.0/api_integration.html
+	* https://www.odoo.com/documentation/8.0/api_integration.html
+	* https://www.odoo.com/documentation/9.0/api_integration.html
 * Odoo ORM docs 
-** https://www.odoo.com/documentation/8.0/reference/orm.html
-** https://www.odoo.com/documentation/9.0/reference/orm.html
+	* https://www.odoo.com/documentation/8.0/reference/orm.html
+	* https://www.odoo.com/documentation/9.0/reference/orm.html
 
 ## Installation
 
