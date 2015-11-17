@@ -1,9 +1,13 @@
-## Odoo Client - Ruby Wrapper for Odoo ERP
+## Odoo Client - Ruby Client for Odoo ERP
 
-This wrapper has been used with Odoo 8 and Odoo 9 installations. Please keep in mind that there are differences between some model names and associations between these versions. I highly recommend getting familiar with Odoo's 'Database Structure' admin settings under the Technical sub-menu and Odoo's web services documentation here:
+This wrapper has been used with Odoo 8 and Odoo 9 installations. Please keep in mind that there are differences between some model names and associations between these versions. I highly recommend getting familiar with Odoo's 'Database Structure' admin settings under the Technical sub-menu and Odoo's documentation here:
 
-* Odoo 8 - https://www.odoo.com/documentation/8.0/api_integration.html
-* Odoo 9 - https://www.odoo.com/documentation/9.0/api_integration.html
+* Odoo API docs
+** https://www.odoo.com/documentation/8.0/api_integration.html
+** https://www.odoo.com/documentation/9.0/api_integration.html
+* Odoo ORM docs 
+** https://www.odoo.com/documentation/8.0/reference/orm.html
+** https://www.odoo.com/documentation/9.0/reference/orm.html
 
 ## Installation
 
@@ -36,7 +40,7 @@ result = client.list_records('crm.lead.tag', [['name', '=', 'Web Lead' ]] )
 
 # client.read_records returns an array of full records with given criteria
 # This example returns all sales teams records with the name not set to 'Direct Sales'
-result = @client.read_records('crm.team', [['name', '!=', 'Direct Sales' ]] )
+result = client.read_records('crm.team', [['name', '!=', 'Direct Sales' ]] )
 
 # client.delete_records removes all records with matching criteria 
 # This example deletes all recgistrations attached to an event id
