@@ -66,8 +66,8 @@ record_params = { "contact_name" => "Bob Smith",
 result = client.create_record('crm.lead', record_params)
 
 # client.update_record update fields on a record for a given model
-# This example updates the name and email of a customer record
-result = client.update_record("res.partner", {"name" => "Bobby Smith", "email" => "bsmith@icloud.com"})
+# This example updates the name and email of a customer record with id=5
+result = client.update_record("res.partner", {"name" => "Bobby Smith", 5, "email" => "bsmith@icloud.com"})
 ```
 
 ## TODO:
