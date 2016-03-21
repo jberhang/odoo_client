@@ -29,8 +29,8 @@ module OdooClient
 			models.execute_kw(@db, @uid, @password, model_name, 'search', [filters], {})
 		end
 
-		def read_records(model_name, filters=[], select_params={})
-			models.execute_kw(@db, @uid, @password, model_name, 'search_read', [filters], select_params)
+		def read_records(model_name, filters=[], select_fields=[])
+			models.execute_kw(@db, @uid, @password, model_name, 'search_read', [filters], {fields: select_fields})
 		end
 
 		def create_record(model_name, params)
@@ -45,8 +45,8 @@ module OdooClient
 			models.execute_kw(@db, @uid, @password, model_name, 'unlink', [params])
 		end
 
-		def find(model_name, id, select_params={})
-			result = read_records(model_name, [["id", "=", id]], select_params)
+		def find(model_name, id, select_fields=[])
+			result = read_records(model_name, [["id", "=", id]], select_fields)
 			result[0] unless result.empty?
 		end	
 
