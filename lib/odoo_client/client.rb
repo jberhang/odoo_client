@@ -46,7 +46,7 @@ module OdooClient
 		end
 
 		def find(model_name, id, select_params={})
-			result = read_records(model_name, [["id", "=", id]], [], select_params)
+			result = read_records(model_name, [["id", "=", id]], select_params)
 			result[0] unless result.empty?
 		end	
 
