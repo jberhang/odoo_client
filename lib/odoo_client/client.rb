@@ -45,6 +45,10 @@ module OdooClient
 			models.execute_kw(@db, @uid, @password, model_name, 'unlink', [params])
 		end
 
+		def model_attributes(model_name, info=['string', 'help', 'type'])
+			models.execute_kw(@db, @uid, @password, model_name, 'fields_get', [], {'attributes': info})
+		end
+
 		def find(model_name, id, select_fields=[])
 			result = read_records(model_name, [["id", "=", id]], select_fields)
 			result[0] unless result.empty?
