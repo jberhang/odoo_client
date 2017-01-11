@@ -42,6 +42,10 @@ result = client.list_records('crm.lead.tag', [['name', '=', 'Web Lead' ]] )
 # This example returns all sales teams records with the name not set to 'Direct Sales'
 result = client.read_records('crm.team', [['name', '!=', 'Direct Sales' ]] )
 
+# client.read_records with optional parameters (select_fields, offset, limit)
+# This example returns only select fields for 50 leads modified since the beginning of the week
+result = client.read_records('crm.lead', [['write_date', '>=', Time.now.beginning_of_week ]], ["user_id", "stage_id", "priority", "date_deadline", "date_closed"], 0, 50)
+
 # client.delete_records removes all records with matching criteria 
 # This example deletes all recgistrations attached to an event id
 registrations = client.list_records("event.registration", [["event_id", "=", 6]])
@@ -68,6 +72,9 @@ result = client.create_record('crm.lead', record_params)
 # client.update_record update fields on a record for a given model
 # This example updates the name and email of a customer record with id=5
 result = client.update_record("res.partner", {"name" => "Bobby Smith", 5, "email" => "bsmith@icloud.com"})
+
+# client.model_attributes returns a hash of all fields for a given model
+result = client.model_attributes("crm.lead")
 ```
 
 ## TODO:

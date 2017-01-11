@@ -29,8 +29,11 @@ module OdooClient
 			models.execute_kw(@db, @uid, @password, model_name, 'search', [filters], {})
 		end
 
-		def read_records(model_name, filters=[], select_fields=[])
-			models.execute_kw(@db, @uid, @password, model_name, 'search_read', [filters], {fields: select_fields})
+		def read_records(model_name, filters=[], select_fields=[], offset=nil, limit=nil)
+			optional_params = {fields: select_fields}
+			optional_params[:offset] = offset unless offset.nil?
+			optional_params[:limit] = limit unless limit.nil?
+			models.execute_kw(@db, @uid, @password, model_name, 'search_read', [filters], optional_params)
 		end
 
 		def create_record(model_name, params)
