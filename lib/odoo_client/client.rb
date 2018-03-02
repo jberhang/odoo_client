@@ -41,7 +41,11 @@ module OdooClient
 		end
 
 		def update_record(model_name, id, params)
-			models.execute_kw(@db, @uid, @password, model_name, 'write', [[id], params])
+			update_records(model_name, [id], params)
+		end
+
+		def update_records(model_name, record_ids, params)
+			models.execute_kw(@db, @uid, @password, model_name, 'write', [record_ids, params])
 		end
 
 		def delete_records(model_name, params)

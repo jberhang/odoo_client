@@ -71,7 +71,10 @@ result = client.create_record('crm.lead', record_params)
 
 # client.update_record update fields on a record for a given model
 # This example updates the name and email of a customer record with id=5
-result = client.update_record("res.partner", {"name" => "Bobby Smith", 5, "email" => "bsmith@icloud.com"})
+result = client.update_record("res.partner", 5, {"name" => "Bobby Smith", "email" => "bsmith@icloud.com"})
+
+# client.update_records update fields for more than 1 record
+result = client.update_records("crm.lead", [5,6,7], {"referred" => "Yelp"})
 
 # client.model_attributes returns a hash of all fields for a given model
 result = client.model_attributes("crm.lead")
