@@ -25,7 +25,7 @@ $ bundle install
 ## Usage
 
 ```ruby
-client = OdooClient.new(url, database_name, username, password)
+client = OdooClient::Client.new(url, database_name, username, password)
 
 # get server version
 result = client.version
